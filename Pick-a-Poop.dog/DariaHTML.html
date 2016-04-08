@@ -3,6 +3,7 @@
 
 	<head>
 		<title>Pick-a-Poop</title>
+		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="hack2016css.css" />
 	</head>
 	<body>
@@ -14,13 +15,9 @@
 		
 		<div id="map"; style="height: 500px; width: 100%">
 			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-			<script> 
+			<script>
 				var mymap = L.map('map').setView([49.61, 6.1333], 16);
-				
-				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					}
-				).addTo(mymap);
+
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
 
 				var str = "49.6056053,6.1004009;49.6022481,6.0982424;49.6104174,6.1119808;49.6099997,6.1218942;49.6100161,6.1220134;49.6103494,6.1243939;49.6103116,6.1241225;49.6090174,6.1250375;49.6079218,6.1228634;49.6123914,6.12414;49.589837,6.1175615;49.5921938,6.1183518;49.5927927,6.1188725;49.5917464,6.1208063;49.5912428,6.1248775;49.6126031,6.111646;49.6122027,6.1082617;49.610022,6.0511328;49.6184751,6.1206244;49.6191907,6.1213109;49.6197357,6.1202553;49.6225103,6.1231566;49.621265,6.1237135;49.6294245,6.1697575;49.625581,6.1363995;49.6098083,6.107633;49.6104256,6.1119266;49.608593,6.107973;49.607352,6.111066;49.610207,6.124201;49.607245,6.128171;49.606894,6.128071;49.605270,6.129439;49.606422,6.110144;49.605726,6.110882;49.609110,6.112134;49.608165,6.106820;49.599919,6.131281;49.603628,6.118409;49.6206753,6.1108967;49.6105542,6.1318758;49.6100987,6.1321436;49.604894,6.1316549;49.6051431,6.1283401;49.6044622,6.129023;49.6113354,6.1209189";
@@ -41,7 +38,40 @@
     		</script>
     	</div>
 
-		<span class="btm">
+<head>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+ <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+	<title>Pick-a-Poop</title>
+</head>
+<body>
+	<h1>Pick-a-Poop</h1>
+	<h2>Click our logo to find out more about our website!</h2>
+	<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!<h3>
+	<br>
+	</br>
+	<!--LeafLetMap-->
+	<div id="map" style="height: 500px;"></div>
+		<script type="text/javascript">
+	var map = L.map('map').setView([49.6106983,6.0656593], 13);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+/*L.marker([49.6106983,6.0656593]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();*/
+    </script>
+	<br>
+	</br>
+
+	<span class="btm">
 			<p id=""; class="">To report a missing dipenser, press the icon below:
 
 			<input id=""; class=""; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis" /></p>
@@ -51,7 +81,7 @@
 
 			<input id="MEImg"; class="btmImg"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" /></p>
 		
-		</span>
+	</span>
 
-	</body>
+</body>
 </html>
