@@ -30,10 +30,12 @@
 				lats.push(res2[1]);
 				}
 
-		for (var i = 0; i <= res; i++) {
-			var marker = [];
-			marker[i] = L.marker([lats[i], lons[i]], {icon: "dog_logo_computer_beta_360.png"}).addTo(mymap);	
-		}
+				for (var i = 0; i <= res; i++) {
+					//var marker = [];
+					var marker = L.marker([lats[i], lons[i]], {icon: "dog_logo_computer_beta_360.png"}).addTo(mymap);	
+				}
+				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
     		</script>
     	</div>
 
