@@ -1,0 +1,38 @@
+* {
+	margin: auto;
+}
+
+body {
+	background-color: lightgrey;
+}
+
+h1 {
+	font-size: 80px;
+	font-family: Ar Christy, Blogger, Purisa;
+}
+
+h2 {
+	font-family: Comic Sans MS;
+}
+
+h3 {
+	font-family: Comic Sans MS;
+}
+
+@media only screen and (min-height: 1000px) {
+
+	div.map {
+		width: 100%;
+		height: 50%;
+	}
+
+}
+
+@media only screen and (max-height: 1000px) {
+
+	div.map {
+		width: 100%;
+		height: 35%;
+	}
+
+}
