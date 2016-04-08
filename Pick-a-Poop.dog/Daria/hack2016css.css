@@ -3,9 +3,7 @@
 }
 
 body {
-	background-image: url("background.jpg");
-	height: 100%;
-	width: 100%;
+	background-color: lightgrey;
 }
 
 h1 {
@@ -21,20 +19,11 @@ h3 {
 	font-family: Comic Sans MS;
 }
 
-div.map {
-	overflow: hidden;
-}
-
 @media only screen and (min-height: 1000px) {
 
 	div.map {
 		width: 100%;
 		height: 50%;
-	}
-
-	#btmInp {
-		width: 30px;
-		height: 20px;
 	}
 
 }
@@ -44,11 +33,6 @@ div.map {
 	div.map {
 		width: 100%;
 		height: 35%;
-	}
-
-	#btmInp {
-		width: 40px;
-		height: 30px;
 	}
 
 }
