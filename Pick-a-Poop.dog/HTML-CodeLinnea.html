@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link type="text/css"; rel="stylesheet"; href="style.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<head>
+		<title>Pick-a-Poop</title>
+		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<link rel="stylesheet"; href="hack2016css.css" />
+	</head>
+	<body>
+		<h1>Pick-a-Poop</h1>
+		<h2>Click our logo to find out more about our website!</h2>
+		<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!</h3>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
- <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
+		<div id="map"; style="height: 500px; width: 100%">
+			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+			<script>
+				var mymap = L.map('map').setView([49.61, 6.1333], 16);
 
-	<title>Pick-a-Poop</title>
-</head>
-<body>
-	<h1>Pick-a-Poop</h1>
-	<h2>Click our logo to find out more about our website!</h2>
-	<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!<h3>
-	<br>
-	</br>
-	<!--LeafLetMap-->
-	<var map = L.map('map').setView([51.505, -0.09], 13);
+				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					}
+				).addTo(mymap);
+			</script>
+		</div>
 
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();>
-
-	<br>
-	</br>
-	<span class="btm">
+		<span class="btm">
 			<p id=""; class="">To report a missing dipenser, press the icon below:
 			<br>
 			</br>
@@ -37,17 +29,13 @@ L.marker([51.5, -0.09]).addTo(map)
 			<input id=""; class=""; type="image"; src="/home/linnea/My Code/Hack.2016/Pick-a-Poop.dog/dog_logo_computer_beta_360.png"; onclick="newDis" /></p>
 			</br>
 
-		</div>
-
-		<div>
-
 			<p id=""; class="">To report empty dispenser, press the icon below:
 				<br>
 			</br>
 			<br>
 			<input id="MEImg"; class="btmImg"; type="image"; src="/home/linnea/My Code/Hack.2016/Pick-a-Poop.dog/dog_logo_computer_beta_360.png"; onclick="MEDis" /></p>
-			</br>
-		</div>		
-	</span>
+			</br>	
+		</span>
 
 </body>
+</html>
