@@ -3,7 +3,9 @@
 }
 
 body {
-	background-image: "https://www.google.lu/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiioa-BkYDMAhWINhoKHRpdBSMQjRwIBw&url=http%3A%2F%2Fwallpapercave.com%2Fgradient-wallpapers&bvm=bv.119028448,d.d2s&psig=AFQjCNECOKjh2L84SD3c3fXtGPgGA-HSvQ&ust=1460242386249393";
+	background-image: url("background.jpg");
+	height: 100%;
+	width: 100%;
 }
 
 h1 {
