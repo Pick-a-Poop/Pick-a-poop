@@ -7,6 +7,9 @@
 		<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="Daria.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset="UTF-8">
 	</head>
 	<body>
@@ -56,7 +59,7 @@
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
 					if(state[i]){
-						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
+						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test' style='font-family:Verdana, Ubuntu Light; text-align: center;' >FULL</div><input type='button' value='Toggle' onclick='toggleText()' class='btn btn-default'; style='font-family:Verdana, Ubuntu Light; text-align: center;' />").openPopup();
 					}
 					//if(!state[i]){
 					//	marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
@@ -67,7 +70,7 @@
         				.setContent("You clicked this marker:");*/
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
-				function toogleText() {
+				function toggleText() {
                     if(document.getElementById('test').innerHTML=='EMPTY'){
                         document.getElementById('test').innerHTML='FULL';
                     } else {
