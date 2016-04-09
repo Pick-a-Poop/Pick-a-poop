@@ -39,10 +39,21 @@
 					lats.push(res2[1]);
 				}
 
+				var state = [];
+
+				for (i = 0; i < lats.length; i++) {
+					state[i]=true;
+				}
 			//MAIN LOOP
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Say hi</button>').openPopup();
+					if(state[i]){
+						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Say hi</button>').openPopup();
+					}
+					if(!state[i]){
+						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
+					}
+
 					/*popup
         				.setLatLng(lons[i], lats[i])
         				.setContent("You clicked this marker:");*/
@@ -50,6 +61,9 @@
 				}
 				$('#map').on('click', '.trigger', function() {
     				alert('Hello from Luxembourg!');
+    				for (i = 0; i < lats.length; i++) {
+					state[i]=false;
+				}
 				});
 				/*function onClick(e) {
     				console.log(this.getLatLng());
@@ -63,7 +77,7 @@
 				}
 
 				function onMapClick(e) {
-    				popup
+    				L.popup()
         				.setLatLng(e.latlng)
         				.setContent("You clicked the map at " + e.latlng.toString())
         				.openOn(mymap);
