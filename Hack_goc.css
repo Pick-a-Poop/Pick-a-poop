@@ -1,3 +1,7 @@
+* {
+	margin: auto;
+}
+
 body {
 	background-image: url("background.jpg");
 	background-size: 100% 100%;
@@ -18,26 +22,35 @@ body {
 	background-size: 100% 100%;
 }
 
-h1 { 
-	vertical-align: top;
-	font-size: 80px;
+h1 {
+	text-align:center; 
+	font-size: 100px;
 	font-family: Ar Christy, Blogger, Purisa;
-	margin-top: 10px;
-	margin-bottom: 0px;
-
 }
 
 h2 {
-	font-size: 10px;
-	font-family: Verdana, Ubuntu Light;
-	text-align: left;
-	margin-left: 10px;
+<<<<<<< HEAD
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+	font-family: Comic Sans MS;
+=======
+
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+
+	font-family: Verdana;
+>>>>>>> e4f102f1838b19bd98e0a94feac3fa6c5bd72a9d
+	text-align: center;
 }
 
 h3 {
-	font-family: Verdana, Ubuntu Light;
-	font-size: 30px;
-	text-align: center;
+	font-family: Verdana;
+	font-size: 30px
 }
 
 div.map {
