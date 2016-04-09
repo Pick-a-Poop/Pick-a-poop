@@ -36,27 +36,11 @@ h3 {
 div.map {
 	overflow: hidden;
 	border: 5px solid white;
+	width: 100%;
+	height: 100%;
 }
 
 #btm {
 	width: 30px;
 	height: 20px;
-}
-
-@media only screen and (min-height: 1000px) {
-
-	div.map {
-		width: 100%;
-		height: 50%;
-	}
-
-}
-
-@media only screen and (max-height: 1000px) {
-
-	div.map {
-		width: 100%;
-		height: 35%;
-	}
-
 }

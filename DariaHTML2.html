@@ -21,7 +21,7 @@
 
 
 				var dogLogo = L.icon({
-    				iconUrl: 'square_logoLogo.png',
+    				iconUrl: 'square_logo.png',
 
     				iconSize:     [40, 40], // size of the icon
     				iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
@@ -38,11 +38,20 @@
 					lats.push(res2[1]);
 				}
 
+			//MAIN LOOP
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
+					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("Hello!").openPopup();
+					/*popup
+        				.setLatLng(lons[i], lats[i])
+        				.setContent("You clicked this marker:");*/
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
+				/*function onClick(e) {
+    				console.log(this.getLatLng());
+				}
+
+				L.marker([lons[0], lats[0]]).addTo(map).on('mouseover', onClick);
 
 				var popup = [];
 				for(var i = 0; i <= lats.length-1; i++){
@@ -60,19 +69,19 @@
 
 				marker[45].bindPopup("FULL").openPopup();
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
+				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);*/
     		</script>
     	</div>
 
 <body>
 	
-	<span class="btm">
+	<!--<span class="btm">
 			<p id="btmTxt1"; class="btmTxt"></p>
 			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="square_logo.png"; onclick="MEDis" />
 			<input style="float: right; margin-right: 50px"; id="btmInp1"; class="btmInp"; type="image"; src="square_logoADD.png"; onclick="newDis" />
 			</br>
 		
-	</span>
+	</span>-->
 
 </body>
 </html>
