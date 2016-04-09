@@ -44,28 +44,46 @@
 				for (i = 0; i < lats.length; i++) {
 					state[i]=true;
 				}
+				function toogleText() {
+                    if(document.getElementById('test').innerHTML=='EMPTY'){
+                        document.getElementById('test').innerHTML='FULL';
+                    } else {
+                        document.getElementById('test').innerHTML='EMPTY';
+                    }
+                    
+                }
 			//MAIN LOOP
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
 					if(state[i]){
-						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Say hi</button>').openPopup();
+						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
 					}
-					if(!state[i]){
-						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
-					}
+					//if(!state[i]){
+					//	marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
+					//}
 
 					/*popup
         				.setLatLng(lons[i], lats[i])
         				.setContent("You clicked this marker:");*/
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
-				$('#map').on('click', '.trigger', function() {
+				function toogleText() {
+                    if(document.getElementById('test').innerHTML=='EMPTY'){
+                        document.getElementById('test').innerHTML='FULL';
+                    } else {
+                        document.getElementById('test').innerHTML='EMPTY';
+                    }
+                    
+                }
+
+                //marker[45].bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
+				/*$('#map').on('click', '.trigger', function() {
     				alert('Hello from Luxembourg!');
     				for (i = 0; i < lats.length; i++) {
 					state[i]=false;
 				}
 				});
-				/*function onClick(e) {
+				function onClick(e) {
     				console.log(this.getLatLng());
 				}
 
