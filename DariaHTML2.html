@@ -16,7 +16,7 @@
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
 		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
 		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
-		<div id="map" style="height: 600px"></div>
+		<div id="map" style="height: 500px"></div>
 		<script>
 			var mymap = L.map('map').setView([49.61, 6.1333], 16);
 			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
@@ -35,27 +35,26 @@
 				lons.push(res2[0]);
 				lats.push(res2[1]);
 			}
-			var state = [];
 			var marker = [];
-			for (var i = 0; i < res.length; i++) {
-				state[i]=true;
-			}
 			for (var i = 0; i <= lats.length-1; i++) {
 			marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);
 			}
-			function toogleText(statusdivid) {
-                var dispenserstatus = document.getElementById(statusdivid);
-                if(dispenserstatus.innerHTML == 'EMPTY'){
-                    dispenserstatus.innerHTML = 'FULL';
-                } else {
-                    dispenserstatus.innerHTML = 'EMPTY';
+			function toogleText(statusdivindex) {
+                    var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
+                    var newtext = '';
+                    if(dispenserstatus.innerHTML == 'EMPTY'){
+                        newtext = 'FULL';
+                    } else {
+                        newtext = 'EMPTY';
+                    }
+                    marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toogle' onclick='toogleText("+statusdivindex+")' />").openPopup();
                 }
-            }
-            for (var i = 0; i <= marker.length-1; i++) {
-                var divid = 'dispenserstatus'+i;
-                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText(\""+divid+"\")' />").openPopup();
-            }
-            alert("hjh");
+
+                for (var i = 0; i <= marker.length-1; i++) {
+                    marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText("+i+")' />").openPopup();
+                }
+
     	</script>
+    	<center><input id="MEImg"; class="btmImg"; type="image"; src="square_logoADD.png"; onclick="MEDis" /></center>
     </body>
 </html>
