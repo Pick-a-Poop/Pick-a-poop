@@ -45,6 +45,7 @@ h3 {
 
 div.map {
 	overflow: hidden;
+	border: 5px solid white;
 }
 
 #btm {
