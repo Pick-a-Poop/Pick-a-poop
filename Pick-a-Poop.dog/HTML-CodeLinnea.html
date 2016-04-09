@@ -7,18 +7,11 @@
 		<link rel="stylesheet"; href="hack2016css.css" />
 	</head>
 	<body>
-	<h2 class="logo">Click our logo to find out more about our website!</h2>
-	<a id ="im" href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-		<img id= "Img" src ="dog_logo_computer_beta_360.png"/>
-	</a>
-		<br>
-		</br>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-			<img src ="dog_logo_computer_beta_360.png"/>
+			<center><img src ="dog_logo_computer_beta_360.png"/></center>
 		</a>
 		<h2>Click our logo to find out more about our website!</h2>
 
->>>>>>> faa1c662f3ef3dc886b60110c4d263b1bea0ebc9
 		<h1>Pick-a-Poop</h1>
 		
 		<br>
@@ -36,10 +29,10 @@
 
 
 				var dogLogo = L.icon({
-    				iconUrl: 'dog_logo_computer_beta_360',
+    				iconUrl: 'square_logo.png',
 
-    				iconSize:     [50, 50], // size of the icon
-    				iconAnchor:   [22, 33], // point of the icon which will correspond to marker's location
+    				iconSize:     [40, 40], // size of the icon
+    				iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
     				popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 				});
 
@@ -58,7 +51,7 @@
 
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]]).addTo(mymap);	
+					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
