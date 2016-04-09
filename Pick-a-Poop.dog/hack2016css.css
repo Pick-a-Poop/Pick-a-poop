@@ -33,24 +33,29 @@ h2 {
 	width: 550px;
 	height: 50px;
 	font-size: 20px;
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+	font-family: Comic Sans MS;
 =======
 
 	width: 550px;
 	height: 50px;
 	font-size: 20px;
 
->>>>>>> 12edd6bf97410eac11ba272ee47e0caf5084437f
-	font-family: Comic Sans MS;
+	font-family: Verdana;
+>>>>>>> e4f102f1838b19bd98e0a94feac3fa6c5bd72a9d
 	text-align: center;
 }
 
 h3 {
-	font-family: Comic Sans MS;
+	font-family: Verdana;
 	font-size: 30px
 }
 
 div.map {
 	overflow: hidden;
+	border: 5px solid white;
 }
 
 #btm {
@@ -74,7 +79,4 @@ div.map {
 		height: 35%;
 	}
 
-}
-.logo {
-	color: #AA0000;
 }
