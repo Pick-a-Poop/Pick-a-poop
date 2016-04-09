@@ -3,37 +3,21 @@
 
 	<head>
 		<title>Pick-a-Poop</title>
-		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>/
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="Daria.css" />
+		<meta charset="UTF-8">
 	</head>
 	<body>
-		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-			<img src ="dog_logo_computer_beta_360.png"/>
-		</a>
-		<h2>Click our logo to find out more about our website!</h2>
+		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logo.png"></a>
+		<h1 style="display:inline-block;">Pick-a-Poop</h1>
 
-		
-		<center>
 
-		<h1>Pick-a-Poop</h1>
-		
-		<br>
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<h3>Find the dog poop bag dispencer nearest YOU in Luxembourg!</h3>
-=======
-		<center><h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3></center>
->>>>>>> 12edd6bf97410eac11ba272ee47e0caf5084437f
-=======
-		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>
->>>>>>> 46060a1927d0b99d8184ba624ab34d44d63b96ef
-		
-		<br>
-		</center>
-		
-		<div id="map"; style="height: 500px">
+<div class="blah">
+  <h2>Click our logo to find out more about our website!</h2>
+					<h3 style="display:inline-block;">Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>
+				</div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+			<div id="map"; style="height: 500px">
 			<script>
 				var mymap = L.map('map').setView([49.61, 6.1333], 14);
 
@@ -58,8 +42,14 @@
 					lats.push(res2[1]);
 				}
 
+				for (var i = 0; i <= lats.length-1; i++) {
+					var marker = [];
+					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
+					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+				}
+
 				var popup = [];
-				for(){
+				for(var i = 0; i <= lats.length-1; i++){
 					popup[i]=L.popup();
 				}
 
@@ -72,11 +62,6 @@
 
 				mymap.on('click', onMapClick);
 
-				for (var i = 0; i <= lats.length-1; i++) {
-					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				}
 				marker[45].bindPopup("FULL").openPopup();
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
