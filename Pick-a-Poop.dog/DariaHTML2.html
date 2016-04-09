@@ -49,14 +49,14 @@
 					popup[i]=L.popup();
 				}
 
-				function onMapClick(e) {
+				function onClick(e) {
     				popup
         				.setLatLng(e.latlng)
         				.setContent("You clicked the map at " + e.latlng.toString())
         				.openOn(mymap);
 				}
 
-				mymap.on('click', onMapClick);
+				mymap.on('click', onClick);
 
 				marker[45].bindPopup("FULL").openPopup();
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
