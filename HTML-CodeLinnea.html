@@ -4,16 +4,20 @@
 	<head>
 		<title>Pick-a-Poop</title>
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="Daria.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset="UTF-8">
 	</head>
 	<body>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
-		<h1 style="display:inline-block;">Pick-a-Poop</h1>
+		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
 			
 		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
-		<div id="map"; style="height: 500px">
+		<div id="map" style="height: 500px"></div>
 			<script>
 				var mymap = L.map('map').setView([49.61, 6.1333], 16);
 
@@ -38,41 +42,38 @@
 					lats.push(res2[1]);
 				}
 
-				for (var i = 0; i <= lats.length-1; i++) {
-					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				}
+				var marker = [];
+                for (var i = 0; i <= lats.length-1; i++) {
+                    marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);    
+                    //marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+                }
 
-				var popup = [];
-				for(var i = 0; i <= lats.length-1; i++){
-					popup[i]=L.popup();
-				}
+                function toogleText(statusdivindex) {
+                    var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
+                    var newtext = '';
+                    if(dispenserstatus.innerHTML == 'EMPTY'){
+                        newtext = 'FULL';
+                    } else {
+                        newtext = 'EMPTY';
+                    }
+                    marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toogle' onclick='toogleText("+statusdivindex+")' />").openPopup();
+                }
 
-				function onMapClick(e) {
-    				popup
-        				.setLatLng(e.latlng)
-        				.setContent("You clicked the map at " + e.latlng.toString())
-        				.openOn(mymap);
-				}
-
-				mymap.on('click', onMapClick);
-
-				marker[45].bindPopup("FULL").openPopup();
-				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
+                for (var i = 0; i <= marker.length-1; i++) {
+                    marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText("+i+")' />").openPopup();
+                }
     		</script>
-    	</div>
 
+    		<input id="MEImg"; class="btmImg"; type="image"; src="square_logoADD.png"; onclick="MEDis" /></p>
 <body>
 	
-	<span class="btm">
+	<!--<span class="btm">
 			<p id="btmTxt1"; class="btmTxt"></p>
 			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="square_logo.png"; onclick="MEDis" />
 			<input style="float: right; margin-right: 50px"; id="btmInp1"; class="btmInp"; type="image"; src="square_logoADD.png"; onclick="newDis" />
 			</br>
 		
-	</span>
+	</span>-->
 
 </body>
 </html>

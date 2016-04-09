@@ -29,7 +29,6 @@ h1 {
 }
 
 h2 {
-<<<<<<< HEAD
 	width: 550px;
 	height: 50px;
 	font-size: 20px;
@@ -37,14 +36,12 @@ h2 {
 	height: 50px;
 	font-size: 20px;
 	font-family: Comic Sans MS;
-=======
 
 	width: 550px;
 	height: 50px;
 	font-size: 20px;
 
 	font-family: Verdana;
->>>>>>> e4f102f1838b19bd98e0a94feac3fa6c5bd72a9d
 	text-align: center;
 }
 
