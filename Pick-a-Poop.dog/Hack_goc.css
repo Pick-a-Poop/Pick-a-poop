@@ -1,0 +1,82 @@
+* {
+	margin: auto;
+}
+
+body {
+	background-image: url("background.jpg");
+	background-size: 100% 100%;
+}
+
+.im{
+	text-align: center;
+	vertical-align: top;
+	width: 550px;
+	height: 50px;
+
+}
+
+.Img{
+	vertical-align: top;
+	width: 550px;
+	height: 50px;
+	background-size: 100% 100%;
+}
+
+h1 {
+	text-align:center; 
+	font-size: 100px;
+	font-family: Ar Christy, Blogger, Purisa;
+}
+
+h2 {
+<<<<<<< HEAD
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+	font-family: Comic Sans MS;
+=======
+
+	width: 550px;
+	height: 50px;
+	font-size: 20px;
+
+	font-family: Verdana;
+>>>>>>> e4f102f1838b19bd98e0a94feac3fa6c5bd72a9d
+	text-align: center;
+}
+
+h3 {
+	font-family: Verdana;
+	font-size: 30px
+}
+
+div.map {
+	overflow: hidden;
+	border: 5px solid white;
+}
+
+#btm {
+	width: 30px;
+	height: 20px;
+}
+
+@media only screen and (min-height: 1000px) {
+
+	div.map {
+		width: 100%;
+		height: 50%;
+	}
+
+}
+
+@media only screen and (max-height: 1000px) {
+
+	div.map {
+		width: 100%;
+		height: 35%;
+	}
+
+}
