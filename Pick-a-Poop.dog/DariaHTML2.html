@@ -21,7 +21,7 @@
 
 
 				var dogLogo = L.icon({
-    				iconUrl: 'square_logoLogo.png',
+    				iconUrl: 'square_logo.png',
 
     				iconSize:     [40, 40], // size of the icon
     				iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
@@ -49,31 +49,14 @@
 					popup[i]=L.popup();
 				}
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Pick-a-Poop.dog/DariaHTML2.html
 				function onClick(e) {
-=======
-				function onMapClick(e) {
->>>>>>> 7013921e61d875bdce6c19cbe8ee8089e68da7ca
     				popup
         				.setLatLng(e.latlng)
         				.setContent("You clicked the map at " + e.latlng.toString())
         				.openOn(mymap);
 				}
-<<<<<<< HEAD
 
 				mymap.on('click', onClick);
-=======
-				var markerA = L.marker([10.496093,-66.881935]).on('click', onClick);
-				function onClick(e) {alert(e.latlng);}
-				markerA.addTo(map)
-
-
->>>>>>> fbb2b2074819fa6fe5ad29f8e4c4b1e3f8da04c6:DariaHTML2.html
-=======
-
-				mymap.on('click', onMapClick);
->>>>>>> 7013921e61d875bdce6c19cbe8ee8089e68da7ca
 
 				marker[45].bindPopup("FULL").openPopup();
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
