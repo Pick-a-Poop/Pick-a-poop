@@ -4,6 +4,7 @@
 
 body {
 	background-image: url("background.jpg");
+<<<<<<< HEAD
 	background-size: 100% 100%;
 }
 
@@ -20,6 +21,13 @@ body {
 	vertical-align: top;
 	width: 550px;
 	height: 50px;
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
+	background-size: 100% 100%;
+>>>>>>> faa1c662f3ef3dc886b60110c4d263b1bea0ebc9
 }
 
 h1 {
@@ -42,16 +50,16 @@ div.map {
 	overflow: hidden;
 }
 
+#btm {
+	width: 30px;
+	height: 20px;
+}
+
 @media only screen and (min-height: 1000px) {
 
 	div.map {
 		width: 100%;
 		height: 50%;
-	}
-
-	#btmInp {
-		width: 30px;
-		height: 20px;
 	}
 
 }
@@ -61,11 +69,6 @@ div.map {
 	div.map {
 		width: 100%;
 		height: 35%;
-	}
-
-	#btmInp {
-		width: 40px;
-		height: 30px;
 	}
 
 }
