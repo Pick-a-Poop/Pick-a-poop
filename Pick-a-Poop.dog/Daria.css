@@ -67,11 +67,3 @@ div.map {
 	}
 
 }
-
-.blah {
-    text-align:center
-}
-.blah > div {
-    vertical-align:top;
-    display:inline-block;   
-}
