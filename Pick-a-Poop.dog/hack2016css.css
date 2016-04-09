@@ -4,11 +4,7 @@
 
 body {
 	background-image: url("background.jpg");
-<<<<<<< HEAD
 	background-size: 100% 100%;
-=======
-	background-size: 100%, 100%;
->>>>>>> origin/master
 }
 
 h1 {

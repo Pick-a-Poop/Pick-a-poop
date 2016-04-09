@@ -21,7 +21,7 @@
 		<div id="map"; style="height: 500px">
 			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 			<script>
-				var mymap = L.map('map').setView([49.61, 6.1333], 16);
+				var mymap = L.map('map').setView([49.61, 6.1333], 14);
 
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
 
@@ -35,10 +35,13 @@
 					lats.push(res2[1]);
 				}
 
+				//var marker =[];
+				//marker[0] = L.marker([lons[0], lats[0]]).addTo(mymap);
+
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
-					marker = L.marker([lats[i], lons[i]]).addTo(mymap);	
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);S
+					marker[i] = L.marker([lons[i], lats[i]]).addTo(mymap);	
+					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
