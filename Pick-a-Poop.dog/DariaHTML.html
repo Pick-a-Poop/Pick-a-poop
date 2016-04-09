@@ -3,15 +3,20 @@
 
 	<head>
 		<title>Pick-a-Poop</title>
-		//<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="hack2016css.css" />
 	</head>
 	<body>
+	<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be">
+		<img src ="dog_logo_computer_beta_360.png" target = "_blank"/>
+	</a>
+			<h2>Click our logo to find out more about our website!</h2>
+		<br>
+		</br>
 		<h1>Pick-a-Poop</h1>
-		<h2>Click our logo to find out more about our website!</h2>
-		<br>
-		<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!</h3>
-		<br>
+		</br>
+			<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!</h3>
+		</br>
 		
 		<div id="map"; style="height: 500px">
 			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -33,7 +38,7 @@
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
 					marker = L.marker([lats[i], lons[i]]).addTo(mymap);	
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);S
 				}
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
