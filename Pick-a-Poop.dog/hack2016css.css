@@ -29,23 +29,17 @@ h1 {
 }
 
 h2 {
-<<<<<<< HEAD
-	width: 550px;
-	height: 50px;
-	font-size: 20px;
-=======
 
 	width: 550px;
 	height: 50px;
 	font-size: 20px;
 
->>>>>>> 12edd6bf97410eac11ba272ee47e0caf5084437f
-	font-family: Comic Sans MS;
+	font-family: Verdana;
 	text-align: center;
 }
 
 h3 {
-	font-family: Comic Sans MS;
+	font-family: Verdana;
 	font-size: 30px
 }
 
