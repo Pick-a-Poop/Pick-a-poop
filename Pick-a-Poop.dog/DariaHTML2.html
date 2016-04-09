@@ -5,25 +5,33 @@
 		<title>Pick-a-Poop</title>
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>/
 		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-		<link rel="stylesheet"; href="hack2016css.css" />
+		<link rel="stylesheet"; href="Daria.css" />
 	</head>
 	<body>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-			<center><img src ="dog_logo_computer_beta_360.png"/></center>
+			<img src ="dog_logo_computer_beta_360.png"/>
 		</a>
 		<h2>Click our logo to find out more about our website!</h2>
+
+		
+		<center>
 
 		<h1>Pick-a-Poop</h1>
 		
 		<br>
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<h3>Find the dog poop bag dispencer nearest YOU in Luxembourg!</h3>
 =======
 		<center><h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3></center>
 >>>>>>> 12edd6bf97410eac11ba272ee47e0caf5084437f
+=======
+		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>
+>>>>>>> 46060a1927d0b99d8184ba624ab34d44d63b96ef
 		
 		<br>
+		</center>
 		
 		<div id="map"; style="height: 500px">
 			<script>
@@ -50,6 +58,19 @@
 					lats.push(res2[1]);
 				}
 
+				var popup = [];
+				for(){
+					popup[i]=L.popup();
+				}
+
+				function onMapClick(e) {
+    				popup
+        				.setLatLng(e.latlng)
+        				.setContent("You clicked the map at " + e.latlng.toString())
+        				.openOn(mymap);
+				}
+
+				mymap.on('click', onMapClick);
 
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
@@ -66,7 +87,7 @@
 	
 	<span class="btm">
 			<p id="btmTxt1"; class="btmTxt"></p>
-			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" />
+			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="square_logo.png"; onclick="MEDis" />
 			<input style="float: right; margin-right: 50px"; id="btmInp1"; class="btmInp"; type="image"; src="square_logoADD.png"; onclick="newDis" />
 			</br>
 		
