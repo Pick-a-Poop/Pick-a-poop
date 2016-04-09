@@ -3,7 +3,7 @@
 
 	<head>
 		<title>Pick-a-Poop</title>
-		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		//<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet"; href="hack2016css.css" />
 	</head>
 	<body>
@@ -25,36 +25,30 @@
 				var lons = [];
 				var lats = [];
 				for (i = 0; i < res.length; i++) {
-				var res2 = res[i].split(",");
-				lons.push(res2[0]);
-				lats.push(res2[1]);
+					var res2 = res[i].split(",");
+					lons.push(res2[0]);
+					lats.push(res2[1]);
 				}
 
-				for (var i = 0; i <= res; i++) {
+				for (var i = 0; i <= 46; i++) {
 					var marker = [];
-					marker[i] = L.marker([lats[i], lons[i]], {icon: "dog_logo_computer_beta_360.png"}).addTo(mymap);	
+					marker = L.marker([lats[i], lons[i]]).addTo(mymap);	
+					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
-
-				var newDis = function() {
-					console.log("new dispenser");
-				}
-
-				var MEDis = function() {
-					console.log("empty dispenser");
-				}
-
+				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);
     		</script>
     	</div>
 
 <body>
 	
 	<span class="btm">
-			<p id=""; class="">To report a missing dipenser, press the icon below:
-			<input id=""; class=""; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis()" /></p>
+			<p id=""; class="">To report a missing dipenser, press the icon below:</p>
+			<input id=""; class=""; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis" />
 			</br>
 
-			<p id=""; class="">To report empty dispenser, press the icon below:
-			<input id="MEImg"; class="btmImg"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis()" /></p>
+			<p id=""; class="">To report empty dispenser, press the icon below:</p>
+			<input id="MEImg"; class="btmImg"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" />
 		
 	</span>
 

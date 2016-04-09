@@ -4,8 +4,8 @@
 
 body {
 	background-image: url("background.jpg");
-	height: 1000%;
-	width: 1000%;
+	height: 100%;
+	width: 100%;
 }
 
 h1 {
@@ -50,10 +50,5 @@ div.map {
 		width: 40px;
 		height: 30px;
 	}
-
-.Img{
-	vertical-align: middle;
-	display: block;
-}
 
 }
