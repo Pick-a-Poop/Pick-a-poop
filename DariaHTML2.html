@@ -48,6 +48,9 @@
         				.setContent("You clicked this marker:");*/
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
+				$('#map').on('click', '.trigger', function() {
+    				alert('Hello from Luxembourg!');
+				});
 				/*function onClick(e) {
     				console.log(this.getLatLng());
 				}
