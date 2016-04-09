@@ -30,7 +30,7 @@
 					lats.push(res2[1]);
 				}
 
-				for (var i = 0; i <= 46; i++) {
+				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
 					marker = L.marker([lats[i], lons[i]]).addTo(mymap);	
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
