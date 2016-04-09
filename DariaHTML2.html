@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
-		<h1 style="display:inline-block;">Pick-a-Poop</h1>
+		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
 			
 		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
 		<div id="map"; style="height: 500px">
@@ -59,7 +59,7 @@
 				for (var i = 0; i <= lats.length-1; i++) {
 					var marker = [];
 					if(state[i]){
-						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test' style='font-family:Verdana, Ubuntu Light; text-align: center;' >FULL</div><input type='button' value='Toggle' onclick='toggleText()' class='btn btn-default'; style='font-family:Verdana, Ubuntu Light; text-align: center;' />").openPopup();
+						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test' style='font-family:Verdana, Ubuntu Light; text-align: center; font-size: 20px;' >FULL</div><input type='button' value='Toggle' onclick='toggleText()' class='btn btn-default'; style='font-family:Verdana, Ubuntu Light; text-align: center;' />").openPopup();
 					}
 					//if(!state[i]){
 					//	marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
@@ -70,16 +70,7 @@
         				.setContent("You clicked this marker:");*/
 					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				}
-				function toggleText() {
-                    if(document.getElementById('test').innerHTML=='EMPTY'){
-                        document.getElementById('test').innerHTML='FULL';
-                    } else {
-                        document.getElementById('test').innerHTML='EMPTY';
-                    }
-                    
-                }
-
-                //marker[45].bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
+				//marker[45].bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
 				/*$('#map').on('click', '.trigger', function() {
     				alert('Hello from Luxembourg!');
     				for (i = 0; i < lats.length; i++) {
