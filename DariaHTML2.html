@@ -15,103 +15,47 @@
 	<body>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
 		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
-			
 		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
-		<div id="map"; style="height: 500px">
-			<script>
-				var mymap = L.map('map').setView([49.61, 6.1333], 16);
-
-				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
-
-
-				var dogLogo = L.icon({
-    				iconUrl: 'square_logo.png',
-
-    				iconSize:     [40, 40], // size of the icon
-    				iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
-    				popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-				});
-
-				var str = "49.6056053,6.1004009;49.6022481,6.0982424;49.6104174,6.1119808;49.6099997,6.1218942;49.6100161,6.1220134;49.6103494,6.1243939;49.6103116,6.1241225;49.6090174,6.1250375;49.6079218,6.1228634;49.6123914,6.12414;49.589837,6.1175615;49.5921938,6.1183518;49.5927927,6.1188725;49.5917464,6.1208063;49.5912428,6.1248775;49.6126031,6.111646;49.6122027,6.1082617;49.610022,6.0511328;49.6184751,6.1206244;49.6191907,6.1213109;49.6197357,6.1202553;49.6225103,6.1231566;49.621265,6.1237135;49.6294245,6.1697575;49.625581,6.1363995;49.6098083,6.107633;49.6104256,6.1119266;49.608593,6.107973;49.607352,6.111066;49.610207,6.124201;49.607245,6.128171;49.606894,6.128071;49.605270,6.129439;49.606422,6.110144;49.605726,6.110882;49.609110,6.112134;49.608165,6.106820;49.599919,6.131281;49.603628,6.118409;49.6206753,6.1108967;49.6105542,6.1318758;49.6100987,6.1321436;49.604894,6.1316549;49.6051431,6.1283401;49.6044622,6.129023;49.6113354,6.1209189";
-				var res = str.split(";");
-				var lons = [];
-				var lats = [];
-				for (i = 0; i < res.length; i++) {
-					var res2 = res[i].split(",");
-					lons.push(res2[0]);
-					lats.push(res2[1]);
-				}
-
-				var state = [];
-
-				for (i = 0; i < lats.length; i++) {
-					state[i]=true;
-				}
-				function toogleText() {
-                    if(document.getElementById('test').innerHTML=='EMPTY'){
-                        document.getElementById('test').innerHTML='FULL';
-                    } else {
-                        document.getElementById('test').innerHTML='EMPTY';
-                    }
-                    
+		<div id="map" style="height: 600px"></div>
+		<script>
+			var mymap = L.map('map').setView([49.61, 6.1333], 16);
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
+			var dogLogo = L.icon({
+    			iconUrl: 'square_logo.png',
+   				iconSize:     [40, 40],
+   				iconAnchor:   [20, 20], 
+   				popupAnchor:  [0, 0] 
+			});
+			var str = "49.6056053,6.1004009;49.6022481,6.0982424;49.6104174,6.1119808;49.6099997,6.1218942;49.6100161,6.1220134;49.6103494,6.1243939;49.6103116,6.1241225;49.6090174,6.1250375;49.6079218,6.1228634;49.6123914,6.12414;49.589837,6.1175615;49.5921938,6.1183518;49.5927927,6.1188725;49.5917464,6.1208063;49.5912428,6.1248775;49.6126031,6.111646;49.6122027,6.1082617;49.610022,6.0511328;49.6184751,6.1206244;49.6191907,6.1213109;49.6197357,6.1202553;49.6225103,6.1231566;49.621265,6.1237135;49.6294245,6.1697575;49.625581,6.1363995;49.6098083,6.107633;49.6104256,6.1119266;49.608593,6.107973;49.607352,6.111066;49.610207,6.124201;49.607245,6.128171;49.606894,6.128071;49.605270,6.129439;49.606422,6.110144;49.605726,6.110882;49.609110,6.112134;49.608165,6.106820;49.599919,6.131281;49.603628,6.118409;49.6206753,6.1108967;49.6105542,6.1318758;49.6100987,6.1321436;49.604894,6.1316549;49.6051431,6.1283401;49.6044622,6.129023;49.6113354,6.1209189";
+			var res = str.split(";");
+			var lons = [];
+			var lats = [];
+			for (var i = 0; i < res.length; i++) {
+				var res2 = res[i].split(",");
+				lons.push(res2[0]);
+				lats.push(res2[1]);
+			}
+			var state = [];
+			var marker = [];
+			for (var i = 0; i < res.length; i++) {
+				state[i]=true;
+			}
+			for (var i = 0; i <= lats.length-1; i++) {
+			marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);
+			}
+			function toogleText(statusdivid) {
+                var dispenserstatus = document.getElementById(statusdivid);
+                if(dispenserstatus.innerHTML == 'EMPTY'){
+                    dispenserstatus.innerHTML = 'FULL';
+                } else {
+                    dispenserstatus.innerHTML = 'EMPTY';
                 }
-			//MAIN LOOP
-				for (var i = 0; i <= lats.length-1; i++) {
-					var marker = [];
-					if(state[i]){
-						marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup("<div id='test' style='font-family:Verdana, Ubuntu Light; text-align: center; font-size: 20px;' >FULL</div><input type='button' value='Toggle' onclick='toggleText()' class='btn btn-default'; style='font-family:Verdana, Ubuntu Light; text-align: center;' />").openPopup();
-					}
-					//if(!state[i]){
-					//	marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap).bindPopup('<button class="trigger">Dont say hi</button>').openPopup();
-					//}
-
-					/*popup
-        				.setLatLng(lons[i], lats[i])
-        				.setContent("You clicked this marker:");*/
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				}
-				//marker[45].bindPopup("<div id='test'>FULL</div><input type='button' value='Toogle' onclick='toogleText()' />").openPopup();
-				/*$('#map').on('click', '.trigger', function() {
-    				alert('Hello from Luxembourg!');
-    				for (i = 0; i < lats.length; i++) {
-					state[i]=false;
-				}
-				});
-				function onClick(e) {
-    				console.log(this.getLatLng());
-				}
-
-				L.marker([lons[0], lats[0]]).addTo(map).on('mouseover', onClick);
-
-				var popup = [];
-				for(var i = 0; i <= lats.length-1; i++){
-					popup[i]=L.popup();
-				}
-
-				function onMapClick(e) {
-    				L.popup()
-        				.setLatLng(e.latlng)
-        				.setContent("You clicked the map at " + e.latlng.toString())
-        				.openOn(mymap);
-				}
-
-				mymap.on('click', onMapClick);
-
-				marker[45].bindPopup("FULL").openPopup();
-				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);*/
-    		</script>
-    	</div>
-
-<body>
-	
-	<!--<span class="btm">
-			<p id="btmTxt1"; class="btmTxt"></p>
-			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="square_logo.png"; onclick="MEDis" />
-			<input style="float: right; margin-right: 50px"; id="btmInp1"; class="btmInp"; type="image"; src="square_logoADD.png"; onclick="newDis" />
-			</br>
-		
-	</span>-->
-
-</body>
+            }
+            for (var i = 0; i <= marker.length-1; i++) {
+                var divid = 'dispenserstatus'+i;
+                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText(\""+divid+"\")' />").openPopup();
+            }
+            alert("hjh");
+    	</script>
+    </body>
 </html>
