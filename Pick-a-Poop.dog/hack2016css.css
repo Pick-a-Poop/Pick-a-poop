@@ -4,7 +4,6 @@
 
 body {
 	background-image: url("background.jpg");
-<<<<<<< HEAD
 	background-size: 100% 100%;
 }
 
@@ -21,13 +20,7 @@ body {
 	vertical-align: top;
 	width: 550px;
 	height: 50px;
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 	background-size: 100% 100%;
->>>>>>> faa1c662f3ef3dc886b60110c4d263b1bea0ebc9
 }
 
 h1 {
