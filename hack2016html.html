@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-			<img src ="dog_logo_computer_beta_360.png"/>
+			<img id="top"; src ="dog_logo_computer_beta_360.png"/>
 		</a>
 
 		<h1>Pick-a-Poop</h1>
@@ -27,7 +27,7 @@
 		<br>
 		</center>
 		
-		<div id="map"; style="height: 500px">
+		<div id="map";>
 			<script>
 				var mymap = L.map('map').setView([49.61, 6.1333], 14);
 
@@ -45,14 +45,21 @@
 				var res = str.split(";");
 				var lons = [];
 				var lats = [];
+				
 				for (i = 0; i < res.length; i++) {
 					var res2 = res[i].split(",");
 					lons.push(res2[0]);
 					lats.push(res2[1]);
 				}
 
+				for (var i = 0; i <= lats.length-1; i++) {
+					var marker = [];
+					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
+					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
+				}
+
 				var popup = [];
-				for(var i = 0; i < lats.length(); i++){
+				for(var i = 0; i <= lats.length-1; i++){
 					popup[i]=L.popup();
 				}
 
@@ -65,11 +72,7 @@
 
 				mymap.on('click', onMapClick);
 
-				for (var i = 0; i <= lats.length-1; i++) {
-					var marker = [];
-					marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);	
-					//marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
-				}
+				
 				marker[45].bindPopup("FULL").openPopup();
 				//var marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
 				//var marker2 = L.marker([49.6022481,6.0982424]).addTo(mymap);

@@ -7,7 +7,7 @@ body {
 	background-size: 100% 100%;
 }
 
-.im{
+.im {
 	text-align: center;
 	vertical-align: top;
 	width: 550px;
@@ -15,17 +15,25 @@ body {
 
 }
 
-.Img{
+.Img {
 	vertical-align: top;
 	width: 550px;
 	height: 50px;
 	background-size: 100% 100%;
 }
 
+#top {
+	margin-left: 10px;
+	height: 120px;
+	width: 160px;
+}
+
 h1 {
 	text-align:center; 
 	font-size: 100px;
 	font-family: Ar Christy, Blogger, Purisa;
+	vertical-align: top;
+	display: inline-block;
 }
 
 h2 {
@@ -41,7 +49,7 @@ h3 {
 	font-size: 30px
 }
 
-div.map {
+#map {
 	overflow: hidden;
 	border: 5px solid white;
 }
@@ -51,20 +59,7 @@ div.map {
 	height: 20px;
 }
 
-@media only screen and (min-height: 1000px) {
-
-	div.map {
-		width: 100%;
-		height: 50%;
-	}
-
-}
-
-@media only screen and (max-height: 1000px) {
-
-	div.map {
-		width: 100%;
-		height: 35%;
-	}
-
+#map {
+	width: 100%;
+	height: 600px;
 }
