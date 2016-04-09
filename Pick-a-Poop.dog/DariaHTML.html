@@ -7,20 +7,21 @@
 		<link rel="stylesheet"; href="hack2016css.css" />
 	</head>
 	<body>
+	<h2 class="logo">Click our logo to find out more about our website!</h2>
+	<a id ="im" href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
+		<img id= "Img" src ="dog_logo_computer_beta_360.png"/>
+	</a>
+		<br>
+		</br>
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank">
-			<center><img src ="dog_logo_computer_beta_360.png"/></center>
+			<img src ="dog_logo_computer_beta_360.png"/>
 		</a>
 		<h2>Click our logo to find out more about our website!</h2>
-
 		<h1>Pick-a-Poop</h1>
 		
 		<br>
 		
-<<<<<<< HEAD
-		<h3>Find the dog poop bag dispencer nearest YOU in Luxembourg!</h3>
-=======
-		<center><h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3></center>
->>>>>>> 12edd6bf97410eac11ba272ee47e0caf5084437f
+		<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!</h3>
 		
 		<br>
 		
@@ -35,8 +36,8 @@
 				var dogLogo = L.icon({
     				iconUrl: 'square_logo.png',
 
-    				iconSize:     [40, 40], // size of the icon
-    				iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
+    				iconSize:     [50, 50], // size of the icon
+    				iconAnchor:   [22, 33], // point of the icon which will correspond to marker's location
     				popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 				});
 
@@ -66,10 +67,12 @@
 <body>
 	
 	<span class="btm">
-			<p id="btmTxt1"; class="btmTxt"></p>
-			<input style="margin-left: 50px"; id="btmInp2"; class="btmIno"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" />
-			<input style="float: right; margin-right: 50px"; id="btmInp1"; class="btmInp"; type="image"; src="square_logoADD.png"; onclick="newDis" />
+			<p id="btmTxt1"; class="btmTxt">To report a missing dipenser, press the icon below:</p>
+			<input id="btmInp1"; class="btmInp"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis" />
 			</br>
+
+			<p id="btmTxt2"; class="btmTxt">To report empty dispenser, press the icon below:</p>
+			<input id="btmInp2"; class="btmIno"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" />
 		
 	</span>
 

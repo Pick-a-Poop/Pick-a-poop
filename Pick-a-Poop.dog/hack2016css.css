@@ -24,18 +24,23 @@ body {
 
 h1 {
 	text-align:center; 
-	font-size: 80px;
+	font-size: 100px;
 	font-family: Ar Christy, Blogger, Purisa;
 }
 
 h2 {
+
 	width: 550px;
 	height: 50px;
+	font-size: 20px;
+
 	font-family: Comic Sans MS;
+	text-align: center;
 }
 
 h3 {
 	font-family: Comic Sans MS;
+	font-size: 30px
 }
 
 div.map {
