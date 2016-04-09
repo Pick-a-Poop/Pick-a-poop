@@ -35,27 +35,24 @@
 				lons.push(res2[0]);
 				lats.push(res2[1]);
 			}
-			var state = [];
 			var marker = [];
-			for (var i = 0; i < res.length; i++) {
-				state[i]=true;
-			}
 			for (var i = 0; i <= lats.length-1; i++) {
 			marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);
 			}
-			function toogleText(statusdivid) {
-                var dispenserstatus = document.getElementById(statusdivid);
-                if(dispenserstatus.innerHTML == 'EMPTY'){
-                    dispenserstatus.innerHTML = 'FULL';
-                } else {
-                    dispenserstatus.innerHTML = 'EMPTY';
+			function toogleText(statusdivindex) {
+                    var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
+                    var newtext = '';
+                    if(dispenserstatus.innerHTML == 'EMPTY'){
+                        newtext = 'FULL';
+                    } else {
+                        newtext = 'EMPTY';
+                    }
+                    marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toogle' onclick='toogleText("+statusdivindex+")' />").openPopup();
                 }
-            }
-            for (var i = 0; i <= marker.length-1; i++) {
-                var divid = 'dispenserstatus'+i;
-                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText(\""+divid+"\")' />").openPopup();
-            }
-            alert("hjh");
+
+                for (var i = 0; i <= marker.length-1; i++) {
+                    marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText("+i+")' />").openPopup();
+                }
     	</script>
     </body>
 </html>
