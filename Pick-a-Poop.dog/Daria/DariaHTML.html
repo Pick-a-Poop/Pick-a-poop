@@ -12,7 +12,9 @@
 		<br>
 		<h3>Find the nearest dog poop bag dispencer to YOU in Luxembourg!</h3>
 		<br>
-		
+		<div>
+			<img src="cutepuppy.png" style="width: 500px;height: 500px;">
+		</div>
 		<div id="map"; style="height: 500px">
 			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 			<script>
@@ -30,22 +32,31 @@
 				lats.push(res2[1]);
 				}
 
-		for (var i = 0; i <= res; i++) {
-			var marker = [];
-			marker[i] = L.marker([lats[i], lons[i]], {icon: "dog_logo_computer_beta_360.png"}).addTo(mymap);	
-		}
+				for (var i = 0; i <= res; i++) {
+					var marker = [];
+					marker[i] = L.marker([lats[i], lons[i]], {icon: "dog_logo_computer_beta_360.png"}).addTo(mymap);	
+				}
+
+				var newDis = function() {
+					console.log("new dispenser");
+				}
+
+				var MEDis = function() {
+					console.log("empty dispenser");
+				}
+
     		</script>
     	</div>
 
 <body>
 	
 	<span class="btm">
-			<p id="Mis"; class="">To report a missing dipenser, press the icon below:
-			<input id=""; class=""; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis" /></p>
+			<p id=""; class="">To report a missing dipenser, press the icon below:
+			<input id=""; class=""; type="image"; src="dog_logo_computer_beta_360.png"; onclick="newDis()" /></p>
 			</br>
 
-			<p id="Emp"; class="">To report empty dispenser, press the icon below:
-			<input id="MEImg"; class="btmImg"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis" /></p>
+			<p id=""; class="">To report empty dispenser, press the icon below:
+			<input id="MEImg"; class="btmImg"; type="image"; src="dog_logo_computer_beta_360.png"; onclick="MEDis()" /></p>
 		
 	</span>
 
