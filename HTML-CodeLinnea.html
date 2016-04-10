@@ -16,7 +16,7 @@
 		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
 		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
 			
-		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
+		<h3>Find the dog poop bag dispenser nearest to YOU in Luxembourg!</h3>				
 		<div id="map" style="height: 500px"></div>
 			<script>
 				var mymap = L.map('map').setView([49.61, 6.1333], 16);
@@ -48,7 +48,7 @@
                     //marker = L.marker([49.6056053,6.1004009]).addTo(mymap);
                 }
 
-                function toogleText(statusdivindex) {
+                function toggleText(statusdivindex) {
                     var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
                     var newtext = '';
                     if(dispenserstatus.innerHTML == 'EMPTY'){
@@ -56,15 +56,15 @@
                     } else {
                         newtext = 'EMPTY';
                     }
-                    marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toogle' onclick='toogleText("+statusdivindex+")' />").openPopup();
+                    marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toggle' onclick='toggleText("+statusdivindex+")' />").openPopup();
                 }
 
                 for (var i = 0; i <= marker.length-1; i++) {
-                    marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toogle' onclick='toogleText("+i+")' />").openPopup();
+                    marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+i+")' />").openPopup();
                 }
     		</script>
 
-    		<input id="MEImg"; class="btmImg"; type="image"; src="square_logoADD.png"; onclick="MEDis" /></p>
+    		<input id="MEImg" class="btmImg" type="image" src="square_logoADD.png" /></p>
 <body>
 	
 	<!--<span class="btm">
