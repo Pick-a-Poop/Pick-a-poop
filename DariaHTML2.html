@@ -3,23 +3,58 @@
 
 	<head>
 		<title>Pick-a-Poop</title>
-		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+                <script>window.twttr = (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0],
+                        t = window.twttr || {};
+                        if (d.getElementById(id)) return t;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+
+                        t._e = [];
+                        t.ready = function(f) {
+                        t._e.push(f);
+                        };
+
+                        return t;
+                        }(document, "script", "twitter-wjs"));</script>
+		<script src="leaflet.js"></script>
 		<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
-		<link rel="stylesheet"; href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<link rel="stylesheet"; href="leaflet.css" />
 		<link rel="stylesheet"; href="Daria.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	</head>
 	<body>
-		<a href="https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
+		<a href="https://github.com/Pick-a-Poop/Pick-a-poop"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
+		<a href="https://www.youtube.com/watch?v=_Y2HITTEu4Q&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
 		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
 		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
-		<div id="map" style="height: 500px"></div>
+<a class="twitter-follow-button" href="https://twitter.com/Pick_a_Poop"> Follow @Pick_a_PooPick_a_Poop</a> on <a href="https://www.twitter.com/Pick_a_Poop" target=_blank>Twitter</a>
+		<div id="map"></div>
 		<script>
 			var mymap = L.map('map').setView([49.61, 6.1333], 16);
-			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
+
+                        // Do a Geo lookup and center map
+                        mymap.locate({setView: true, maxZoom: 16});
+                        // Do anything additional once position found, like tell the user how many meters she is away from the closest poop spot
+                        function onLocationFound(e) {
+                                return;
+                                var radius = e.accuracy / 2;
+ 
+                                L.marker(e.latlng).addTo(mymap)
+                                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+ 
+                                L.circle(e.latlng, radius).addTo(mymap);
+                        }
+
+                        mymap.on('locationfound', onLocationFound);
+
 			var dogLogo = L.icon({
     			iconUrl: 'square_logo.png',
    				iconSize:     [40, 40],
