@@ -10,6 +10,6 @@
 
 ![alt text](https://raw.githubusercontent.com/Pick-a-Poop/Pick-a-poop/master/presentation/pics/dog_logo.jpeg "Pick a Poop - Initial template")This was our first (physical) draft of the logo.
 
-This App has been developed during the (http://gameofcode.eu)[Game of Code]
+This App has been developed during the [Game of Code](http://gameofcode.eu)
 
 ![alt text](https://raw.githubusercontent.com/Pick-a-Poop/Pick-a-poop/master/presentation/pics/GameOfCodeLogo.png "Game of Code Logo")
