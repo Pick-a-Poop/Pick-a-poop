@@ -92,14 +92,26 @@
 
             function newDis() {
                 console.log("newDis() activated");
-                navigator.geolocation.getCurrentPosition(addMarker());
-            }
 
-            function addMarker() {
-                console.log("addMarker() activated");
-                //var lati = coords.latitude;
-                //var long = coords.longitude;
-                marker[marker.length] = L.marker([0, 0, {icon: dogLogo}]).addTo(mymap);
+                var output = document.getElementById("btm1");
+
+                if (!navigator.geolocation){
+                    console.log("Geolocation error1");
+                    return;
+                }      
+
+                function success(position) {
+                    console.log("Geolocation success, adding marker");                        
+                    var latitude  = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    marker[marker.length] = L.marker([latitude, longitude, {icon: dogLogo}]).addTo(mymap);
+                };
+
+                function error() {
+                    console.log("Geolocation error2");
+                }; 
+
+                navigator.geolocation.getCurrentPosition(success, error);
             }
 
     	</script>
