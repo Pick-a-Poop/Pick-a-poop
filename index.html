@@ -87,7 +87,7 @@
             }
 
             for (var i = 0; i <= marker.length-1; i++) {
-                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+i+")' />").openPopup();
+                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+i+")' />");
             }
 
             function newDis() {
@@ -104,11 +104,13 @@
                     console.log("Geolocation success, adding marker");                        
                     var latitude  = position.coords.latitude;
                     var longitude = position.coords.longitude;
-                    marker[marker.length] = L.marker([latitude, longitude, {icon: dogLogo}]).addTo(mymap);
+                    newMarkerFoo = marker.length;
+                    marker[newMarkerFoo] = L.marker([latitude, longitude, {icon: dogLogo}]).addTo(mymap);
+                    marker[newMarkerFoo].bindPopup("<div id='dispenserstatus"+newMarkerFoo+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+newMarkerFoo+")' />").openPopup();
                 };
 
                 function error() {
-                    console.log("Geolocation error2");
+                    console.log("Geolocation error");
                 }; 
 
                 navigator.geolocation.getCurrentPosition(success, error);
