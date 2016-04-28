@@ -42,18 +42,7 @@
 
                         // Do a Geo lookup and center map
                         mymap.locate({setView: true, maxZoom: 16});
-                        // Do anything additional once position found, like tell the user how many meters she is away from the closest poop spot
-                        function onLocationFound(e) {
-                                return;
-                                var radius = e.accuracy / 2;
- 
-                                L.marker(e.latlng).addTo(mymap)
-                                .bindPopup("You are within " + radius + " meters from this point").openPopup();
- 
-                                L.circle(e.latlng, radius).addTo(mymap);
-                        }
 
-                        mymap.on('locationfound', onLocationFound);
 
 			var dogLogo = L.icon({
     			iconUrl: 'square_logo.png',
@@ -91,26 +80,36 @@
             }
 
             function newDis() {
-                console.log("newDis() activated");
+                console.log("Add-button pressed, locating...");
 
                 var output = document.getElementById("btm1");
 
                 if (!navigator.geolocation){
-                    console.log("Geolocation error1");
-                    return;
+                    console.log("No geolocation available!");
                 }      
 
                 function success(position) {
-                    console.log("Geolocation success, adding marker");                        
+                    console.log("Geolocation success, adding marker...");                        
                     var latitude  = position.coords.latitude;
                     var longitude = position.coords.longitude;
-                    newMarkerFoo = marker.length;
-                    marker[newMarkerFoo] = L.marker([latitude, longitude, {icon: dogLogo}]).addTo(mymap);
-                    marker[newMarkerFoo].bindPopup("<div id='dispenserstatus"+newMarkerFoo+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+newMarkerFoo+")' />").openPopup();
+                    newAddedMarker = marker.length;
+
+                    var newMarkerIcon = L.icon({
+                        iconUrl: 'newMarker.png',
+                        iconSize:     [40, 40],
+                        iconAnchor:   [20, 20], 
+                        popupAnchor:  [0, 0] 
+                    });
+
+                    marker[newAddedMarker] = L.marker([latitude, longitude, {icon: newMarkerIcon}]).addTo(mymap);
+                    marker[newAddedMarker].bindPopup("<div id='dispenserstatus"+newAddedMarker+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+newAddedMarker+")' />");
+
+                    console.log("Added marker to " + latitude + ", " + longitude);
+
                 };
 
                 function error() {
-                    console.log("Geolocation error");
+                    console.log("Couldn't get geolocation!");
                 }; 
 
                 navigator.geolocation.getCurrentPosition(success, error);
