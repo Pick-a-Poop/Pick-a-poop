@@ -1,5 +1,7 @@
 # Pick-a-Poop
 
+[![Join the chat at https://gitter.im/Pick-a-Poop/Pick-a-poop](https://badges.gitter.im/Pick-a-Poop/Pick-a-poop.svg)](https://gitter.im/Pick-a-Poop/Pick-a-poop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **CSS:** hack2016css.css
 
 **HTML (main):** HTML-CodeLinnea.html
