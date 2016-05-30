@@ -1,5 +1,12 @@
-html, body, #map {
+html, body {
 	height: 100%;
+}
+
+#map {
+	height: 67%;
+	width: 95%;
+	border: 2px solid orange;
+	margin: auto;
 }
 
 body {
@@ -9,42 +16,36 @@ body {
 	background-size: 100% 100%;
 }
 
-.im{
-	text-align: center;
-	vertical-align: top;
-	width: 550px;
-	height: 50px;
-
-}
-
-.Img{
-	vertical-align: top;
-	width: 550px;
-	height: 50px;
-	background-size: 100% 100%;
-}
-
-h1 { 
-	vertical-align: top;
+#topTitle { 
 	font-size: 80px;
-	font-family: Ar Christy, Blogger, Purisa;
-	margin-top: 30px;
-	margin-bottom: 0px;
+	margin-top: 40px;
+	display: inline-block;
+	margin-right: 12%;
+}
 
+#topImg {
+	vertical-align: top;
+	float: left;
+	margin-left: 10%;
 }
 
 h3 {
-	font-family: Verdana, Ubuntu Light;
-	font-size: 30px;
-	text-align: center;
+	font-size: 17px;
+	display: inline;
+	margin-right: 12%;
 }
 
-div.map {
-	overflow: hidden;
-	border: 5px solid white;
+.btmImg {
+	width: 150px;
+	height: 150px;
 }
 
-#btm {
-	width: 30px;
-	height: 20px;
+#title_img {
+	display: inline;
+}
+
+@media (min-width: 1130px 1420) {
+	#topImg {
+		margin-left: 25%;
+	}
 }

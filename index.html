@@ -2,119 +2,150 @@
 <html>
 
 	<head>
-		<title>Pick-a-Poop</title>
-                <script>window.twttr = (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0],
-                        t = window.twttr || {};
-                        if (d.getElementById(id)) return t;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "https://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
+		<script type="text/javascript" src="leaflet.js"></script>
+		<script type="text/javascript" src="jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="bootstrap.min.js"></script>
 
-                        t._e = [];
-                        t.ready = function(f) {
-                        t._e.push(f);
-                        };
+		<link rel="stylesheet" href="leaflet.css" />
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<link rel="stylesheet" href="style.css" />
 
-                        return t;
-                        }(document, "script", "twitter-wjs"));</script>
-		<script src="leaflet.js"></script>
-		<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
-		<link rel="stylesheet"; href="leaflet.css" />
-		<link rel="stylesheet"; href="style.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	</head>
-	<body>
-		<a href="https://github.com/Pick-a-Poop/Pick-a-poop"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
-		<a href="https://www.youtube.com/watch?v=_Y2HITTEu4Q&feature=youtu.be"; target = "_blank"><img style="margin-left:20px"; src ="square_logoLogo.png"></a>
-		<h1 style="display:inline-block; font-family: Ar Christy, Blogger, Purisa;font-size: 80px; margin-top: 40px;">Pick-a-Poop</h1>
-		<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg!</h3>				
-<a class="twitter-follow-button" href="https://twitter.com/Pick_a_Poop"> Follow @Pick_a_PooPick_a_Poop</a> on <a href="https://www.twitter.com/Pick_a_Poop" target=_blank>Twitter</a>
-		<div id="map"></div>
-		<script>
-			var mymap = L.map('map').setView([49.61, 6.1333], 16);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                        // Do a Geo lookup and center map
-                        mymap.locate({setView: true, maxZoom: 16});
+		<title>Pick-a-Poop</title>
 
+        <script>
+        	window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
 
-			var dogLogo = L.icon({
-    			iconUrl: 'square_logo.png',
-   				iconSize:     [40, 40],
-   				iconAnchor:   [20, 20], 
-   				popupAnchor:  [0, 0] 
-			});
-			var str = "49.6056053,6.1004009;49.6022481,6.0982424;49.6104174,6.1119808;49.6099997,6.1218942;49.6100161,6.1220134;49.6103494,6.1243939;49.6103116,6.1241225;49.6090174,6.1250375;49.6079218,6.1228634;49.6123914,6.12414;49.589837,6.1175615;49.5921938,6.1183518;49.5927927,6.1188725;49.5917464,6.1208063;49.5912428,6.1248775;49.6126031,6.111646;49.6122027,6.1082617;49.610022,6.0511328;49.6184751,6.1206244;49.6191907,6.1213109;49.6197357,6.1202553;49.6225103,6.1231566;49.621265,6.1237135;49.6294245,6.1697575;49.625581,6.1363995;49.6098083,6.107633;49.6104256,6.1119266;49.608593,6.107973;49.607352,6.111066;49.610207,6.124201;49.607245,6.128171;49.606894,6.128071;49.605270,6.129439;49.606422,6.110144;49.605726,6.110882;49.609110,6.112134;49.608165,6.106820;49.599919,6.131281;49.603628,6.118409;49.6206753,6.1108967;49.6105542,6.1318758;49.6100987,6.1321436;49.604894,6.1316549;49.6051431,6.1283401;49.6044622,6.129023;49.6113354,6.1209189;49.610561,6.107538";
-			var res = str.split(";");
-			var lons = [];
-			var lats = [];
-			for (var i = 0; i < res.length; i++) {
-				var res2 = res[i].split(",");
-				lons.push(res2[0]);
-				lats.push(res2[1]);
-			}
-			var marker = [];
-			for (var i = 0; i <= lats.length-1; i++) {
-			  marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(mymap);
-			}
-
-			function toggleText(statusdivindex) {
-                var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
-                var newtext = '';
-                if(dispenserstatus.innerHTML == 'EMPTY'){
-                    newtext = 'FULL';
-                } else {
-                    newtext = 'EMPTY';
-                }
-                marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toggle' onclick='toggleText("+statusdivindex+")' />").openPopup();
-            }
-
-            for (var i = 0; i <= marker.length-1; i++) {
-                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+i+")' />");
-            }
-
-            function newDis() {
-                console.log("Add-button pressed, locating...");
-
-                var output = document.getElementById("btm1");
-
-                if (!navigator.geolocation){
-                    console.log("No geolocation available!");
-                }      
-
-                function success(position) {
-                    console.log("Geolocation success, adding marker...");                        
-                    var latitude  = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-                    newAddedMarker = marker.length;
-
-                    var newMarkerIcon = L.icon({
-                        iconUrl: 'newMarker.png',
-                        iconSize:     [40, 40]
-   ,                     iconAnchor:   [20, 20], 
-                        popupAnchor:  [0, 0] 
-                    });
-
-                    marker[newAddedMarker] = L.marker([latitude, longitude, {icon: newMarkerIcon}]).addTo(mymap).bindPopup("<div id='dispenserstatus"+newAddedMarker+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+newAddedMarker+")' />");
-
-                    console.log("Added marker to " + latitude + ", " + longitude);
-
+                t._e = [];
+                t.ready = function(f) {
+                	t._e.push(f);
                 };
 
-                function error() {
-                    console.log("Couldn't get geolocation!");
-                }; 
+                return t;
+            }(document, "script", "twitter-wjs"));
+        </script>
 
-                navigator.geolocation.getCurrentPosition(success, error);
-            }
+	</head>
+	<body>
+		<a href="https://github.com/Pick-a-Poop/Pick-a-poop" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
+		<center>
+			<span id="title_img">
+				<a href="https://www.youtube.com/watch?v=_Y2HITTEu4Q&feature=youtu.be"; target = "_blank" data-toggle="tooltip" title="Click the logo to see more about this project!"><img id="topImg" src="square_logo.png"></a>
 
-    	</script>
-    	<center><input id="newBut"; class="btmImg"; type="image"; src="square_logoADD.png"; onclick="newDis()" /></center>
+				<h1 id="topTitle">Pick-a-Poop!</h1>
+				<br>
+				<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg</h3>
+			</span>
+		</center>
+
+		<div id="map">
+			<script>
+				var map = L.map('map').setView([49.61, 6.1333], 16);
+	                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+	                        // Do a Geo lookup and center map
+	                        map.locate({setView: true, maxZoom: 16});
+
+
+				var dogLogo = L.icon({
+	    			iconUrl: 'square_logo.png',
+	   				iconSize:     [40, 40],
+	   				iconAnchor:   [20, 20], 
+	   				popupAnchor:  [0, 0] 
+				});
+				var str = "49.6056053,6.1004009;49.6022481,6.0982424;49.6104174,6.1119808;49.6099997,6.1218942;49.6100161,6.1220134;49.6103494,6.1243939;49.6103116,6.1241225;49.6090174,6.1250375;49.6079218,6.1228634;49.6123914,6.12414;49.589837,6.1175615;49.5921938,6.1183518;49.5927927,6.1188725;49.5917464,6.1208063;49.5912428,6.1248775;49.6126031,6.111646;49.6122027,6.1082617;49.610022,6.0511328;49.6184751,6.1206244;49.6191907,6.1213109;49.6197357,6.1202553;49.6225103,6.1231566;49.621265,6.1237135;49.6294245,6.1697575;49.625581,6.1363995;49.6098083,6.107633;49.6104256,6.1119266;49.608593,6.107973;49.607352,6.111066;49.610207,6.124201;49.607245,6.128171;49.606894,6.128071;49.605270,6.129439;49.606422,6.110144;49.605726,6.110882;49.609110,6.112134;49.608165,6.106820;49.599919,6.131281;49.603628,6.118409;49.6206753,6.1108967;49.6105542,6.1318758;49.6100987,6.1321436;49.604894,6.1316549;49.6051431,6.1283401;49.6044622,6.129023;49.6113354,6.1209189;49.610561,6.107538";
+				var res = str.split(";");
+				var lons = [];
+				var lats = [];
+				for (var i = 0; i < res.length; i++) {
+					var res2 = res[i].split(",");
+					lons.push(res2[0]);
+					lats.push(res2[1]);
+				}
+				var marker = [];
+				for (var i = 0; i <= lats.length-1; i++) {
+				  marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(map);
+				}
+
+				function toggleText(statusdivindex) {
+	                var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
+	                var newtext = '';
+	                if(dispenserstatus.innerHTML == 'EMPTY'){
+	                    newtext = 'FULL';
+	                } else {
+	                    newtext = 'EMPTY';
+	                }
+	                marker[statusdivindex].bindPopup("<div id='dispenserstatus"+statusdivindex+"'>"+newtext+"</div><input type='button' value='Toggle' onclick='toggleText("+statusdivindex+")' />").openPopup();
+	            }
+
+	            for (var i = 0; i <= marker.length-1; i++) {
+	                marker[i].bindPopup("<div id='dispenserstatus"+i+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+i+")' />");
+	            }
+
+	            function newDis() {
+	                console.log("Add-button pressed, locating...");
+
+	                var output = document.getElementById("btm1");
+
+	                if (!navigator.geolocation){
+	                    console.log("No geolocation available!");
+	                }      
+
+	                function success(position) {
+	                    console.log("Geolocation success, adding marker...");                        
+	                    var latitude  = position.coords.latitude;
+	                    var longitude = position.coords.longitude;
+	                    newAddedMarker = marker.length;
+
+	                    var newMarkerIcon = L.icon({
+	                        iconUrl: 'newMarker.png',
+	                        iconSize:     [40, 40],
+	                        iconAnchor:   [20, 20], 
+	                        popupAnchor:  [0, 0] 
+	                    });
+
+	                    marker[newAddedMarker] = L.marker([latitude, longitude, {icon: newMarkerIcon}]).addTo(map).bindPopup("<div id='dispenserstatus"+newAddedMarker+"'>FULL</div><input type='button' value='Toggle' onclick='toggleText("+newAddedMarker+")' />");
+
+	                    console.log("Added marker to " + latitude + ", " + longitude);
+
+	                };
+
+	                function error() {
+	                    console.log("Couldn't get geolocation!");
+	                }; 
+
+	                navigator.geolocation.getCurrentPosition(success, error);
+	            }
+
+	            function message() {
+	                alert("This function is not fully implemented yet. Please report a missing dispenser by using 'Contact the Team'-button.");
+
+	            };
+
+    		</script>
+		</div>
+
+		<br>
+
+		<center>
+			 <div class="btn-group btn-group-justified">
+
+  				<a href="#" class="btn btn-primary" onclick="message()"> + Add new Marker </a>
+  				
+  				<a href="mailto:info@pick-a-poop.dog" class="btn btn-primary"> <span class="glyphicon glyphicon-envelope"></span> Contact the Team </a>
+
+	      		<a href="https://twitter.com/Pick_a_Poop" class="btn btn-primary" target="_blank"> @Pick-a-Poop on Twitter </a>
+			</div>
+		</center>
+
     </body>
 </html>
