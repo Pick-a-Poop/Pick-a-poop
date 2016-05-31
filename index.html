@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="leaflet.css" />
 		<link rel="stylesheet" href="bootstrap.min.css" />
-		<link rel="stylesheet" media="" href="style_notL.css" />
+		<link rel="stylesheet" href="style.css" />
 
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,15 +36,14 @@
 
 	</head>
 	<body>
-		<a href="https://github.com/Pick-a-Poop/Pick-a-poop" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
+		<a href="https://github.com/Pick-a-Poop/Pick-a-poop" target="_blank"><img id="GHLink" style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
 		<center>
-			<span id="title_img">
-				<a href="https://www.youtube.com/watch?v=_Y2HITTEu4Q&feature=youtu.be"; target = "_blank" data-toggle="tooltip" title="Click the logo to see more about this project!"><img id="topImg" src="square_logo.png"></a>
 
-				<h1 id="topTitle">Pick-a-Poop!</h1>
-				<br>
-				<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg</h3>
-			</span>
+			<a href="https://www.youtube.com/watch?v=_Y2HITTEu4Q&feature=youtu.be"; target = "_blank" data-toggle="tooltip" title="Click the logo to see more about this project!"><img id="topImg" src="square_logo.png"></a>
+
+			<h1 id="topTitle">Pick-a-Poop!</h1>
+			<h3>Find the nearest dog poop bag dispenser to YOU in Luxembourg</h3>
+
 		</center>
 
 		<div id="map">
@@ -83,8 +82,18 @@
 	   				popupAnchor:  [0, 0] 
 				});
 				var IWBH = L.marker([49.600511, 6.113653], {icon: IWBHLogo}).addTo(map);
-				var popupText = "Pick-a-Poop was born here " + '<a href="https://twitter.com/Gameofcode_lu" target="_blank">@Gameofcode_lu</a>';
-				IWBH.bindPopup(popupText);
+				var popupTextIWBH = "Pick-a-Poop was born here " + '<a href="https://twitter.com/Gameofcode_lu" target="_blank">@Gameofcode_lu</a>';
+				IWBH.bindPopup(popupTextIWBH);
+
+				var CDLogo = L.icon({
+	    			iconUrl: 'CD_logo.png',
+	   				iconSize:     [25, 25],
+	   				iconAnchor:   [20, 20], 
+	   				popupAnchor:  [0, 0] 
+				});
+				var CoderDojo = L.marker([49.591602, 6.140687], {icon: CDLogo}).addTo(map);
+				var popupTextCD = '<a href="https://twitter.com/coderdojolu" target="_blank">CoderDojoLu</a>';
+				CoderDojo.bindPopup(popupTextCD);
 
 				function toggleText(statusdivindex) {
 	                var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);
@@ -149,11 +158,11 @@
 		<center>
 			 <div class="btn-group btn-group-justified">
 
-  				<a href="#" class="btn btn-primary" onclick="message()"> + Add new Marker </a>
+  				<a href="#" class="btn btn-primary" onclick="message()" id="btn1"> + Marker </a>
   				
-  				<a href="mailto:info@pick-a-poop.dog" class="btn btn-primary"> <span class="glyphicon glyphicon-envelope"></span> Contact the Team </a>
+  				<a href="mailto:info@pick-a-poop.dog" class="btn btn-primary" id="btn2"> <span class="glyphicon glyphicon-envelope"></span> Contact </a>
 
-	      		<a href="https://twitter.com/Pick_a_Poop" class="btn btn-primary" target="_blank"> @Pick-a-Poop on Twitter </a>
+	      		<a href="https://twitter.com/Pick_a_Poop" class="btn btn-primary" target="_blank" id="btn3"> Twitter </a>
 			</div>
 		</center>
 
