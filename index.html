@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="leaflet.css" />
 		<link rel="stylesheet" href="bootstrap.min.css" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" media="" href="style_notL.css" />
 
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -75,6 +75,16 @@
 				for (var i = 0; i <= lats.length-1; i++) {
 				  marker[i] = L.marker([lons[i], lats[i]], {icon: dogLogo}).addTo(map);
 				}
+
+				var IWBHLogo = L.icon({
+	    			iconUrl: 'GOC_logo.png',
+	   				iconSize:     [40, 40],
+	   				iconAnchor:   [20, 20], 
+	   				popupAnchor:  [0, 0] 
+				});
+				var IWBH = L.marker([49.600511, 6.113653], {icon: IWBHLogo}).addTo(map);
+				var popupText = "Pick-a-Poop was born here " + '<a href="https://twitter.com/Gameofcode_lu" target="_blank">@Gameofcode_lu</a>';
+				IWBH.bindPopup(popupText);
 
 				function toggleText(statusdivindex) {
 	                var dispenserstatus = document.getElementById("dispenserstatus"+statusdivindex);

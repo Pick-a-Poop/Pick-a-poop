@@ -27,6 +27,8 @@ body {
 	vertical-align: top;
 	float: left;
 	margin-left: 10%;
+	width: 200px;
+	height: 200px;
 }
 
 h3 {
@@ -44,8 +46,37 @@ h3 {
 	display: inline;
 }
 
-@media (min-width: 1130px 1420) {
+@media (min-width: 1130px) {
 	#topImg {
 		margin-left: 25%;
+	}
+}
+
+@media (min-width: 1420px) {
+	#topImg {
+		margin-left: 35%;
+	}
+}
+
+@media (max-width: 860px) {
+	#topTitle {
+		font-size: 65px;
+	}
+}
+
+@media (max-width: 760px) {
+	#topTitle {
+		font-size: 45px;
+	}
+
+	#topImg {
+		width: 150px;
+		height: 150px;
+	}
+}
+
+@media (max-width: 620px) {
+	#topTitle {
+		font-size: 25px;
 	}
 }
