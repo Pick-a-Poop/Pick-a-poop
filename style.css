@@ -41,6 +41,14 @@ h3 {
 	height: 150px;
 }
 
+.glyphicon.glyphicon-option-vertical {
+	display: inline;
+}
+
+#topBtn {
+	float: right;
+}
+
 @media (min-width: 1130px) {
 	#topImg {
 		margin-left: 25%;
@@ -65,8 +73,8 @@ h3 {
 	}
 
 	#topImg {
-		width: 150px;
-		height: 150px;
+		width: 120px;
+		height: 120px;
 	}
 
 	h3{
@@ -82,12 +90,27 @@ h3 {
 	#GHLink {
 		display: none;
 	}
+
+	#btmBtn {
+		display: none;
+	}
+
+	#topImg {
+		float: left;
+		margin-left: 0px;
+	}
+}
+
+@media (min-width: 620px) {
+	#topBtn {
+		display: none;
+	}
 }
 
 @media (max-width: 414px) {
 	#topTitle {
 		font-size: 23px;
-		margin-top: 40px;
+		margin-top: 20px;
 	}
 
 	h3 {
@@ -95,13 +118,13 @@ h3 {
 	}
 
 	#topImg {
-		width: 100px;
-		height: 100px;
+		width: 75px;
+		height: 75px;
 	}
 }
 
 @media (max-height: 736px) {
 	#map {
-		height: 55%;
+		height: 70%;
 	}
 }
