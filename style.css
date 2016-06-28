@@ -25,7 +25,7 @@ body {
 
 #topImg {
 	vertical-align: top;
-	margin-left: 10%;
+	margin-left: 100px;
 	width: 200px;
 	height: 200px;
 }
@@ -51,13 +51,13 @@ h3 {
 
 @media (min-width: 1130px) {
 	#topImg {
-		margin-left: 25%;
+		margin-left: 75px;
 	}
 }
 
 @media (min-width: 1420px) {
 	#topImg {
-		margin-left: 30%;
+		margin-left: 100px;
 	}
 }
 
